@@ -10,6 +10,7 @@ function getRandomColor() {
   
   // Function to handle key click
   function handleKeyClick() {
+    console.log("Key clicked:", this.textContent);
     this.style.backgroundColor = getRandomColor();
   }
   
@@ -17,15 +18,17 @@ function getRandomColor() {
   const keyboard = document.getElementById('keyboard');
   
   // Create emoji key
-  const emojiKey = document.createElement('div');
-  emojiKey.className = 'key emoji-key';
-  emojiKey.innerHTML = '😊🎉❤️'; // Add your favorite emojis
-  keyboard.appendChild(emojiKey);
+  //const emojiKey = document.createElement('div');
+  //emojiKey.className = 'key emoji-key';
+  //emojiKey.innerHTML = '😊🎉❤️'; // Add your favorite emojis
+  //keyboard.appendChild(emojiKey);
   
-  // Create circular keys
-  for (let i = 0; i < 9; i++) {
+  // Create circular keys with labels
+  const labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  for (let i = 0; i < labels.length; i++) {
     const key = document.createElement('div');
     key.className = 'key';
+    key.textContent = labels[i];
     key.addEventListener('click', handleKeyClick);
     keyboard.appendChild(key);
   }
